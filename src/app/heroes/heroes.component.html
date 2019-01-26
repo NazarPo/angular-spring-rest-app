@@ -1,0 +1,49 @@
+<div class="d-flex flex-wrap flex-row">
+
+  <div class="mt-5 mr-5">
+    <h3>My heroes</h3>
+    <table style="width: 400px;"
+           class="table table-sm table-hover"
+           *ngIf="heroes?.length">
+      <thead>
+      <th>#</th>
+      <th>Name</th>
+      <th style="width: 60px;">Action</th>
+      </thead>
+      <tbody *ngFor="let hero of heroes; let i = index">
+      <tr>
+        <td>{{i + 1}}</td>
+        <td>
+          <a routerLink="/heroes/{{hero.id}}">{{hero.name}}</a>
+        </td>
+        <td>
+          <button type="button"
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteHero(hero.id)"
+          >Delete
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="!heroes?.length">
+      <h4>You have no heroes yet</h4>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h3>Create new hero</h3>
+    <form>
+      <div class="form-group">
+        <label for="heroName">Hero name</label>
+        <input class="form-control" id="heroName"
+               placeholder="Enter name" #heroName>
+      </div>
+      <button (click)="createHero(heroName.value)"
+              class="btn btn-success">Create
+      </button>
+    </form>
+  </div>
+
+</div>

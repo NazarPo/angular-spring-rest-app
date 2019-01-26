@@ -1,0 +1,36 @@
+<div *ngIf="tavern">
+  <div class="mt-4">
+    <h3>{{tavern.name}}</h3>
+  </div>
+
+  <div class="mt-5" style="width: 30em;">
+    <h3>The list of tavern heroes</h3>
+    <table class="table table-hover" *ngIf="tavern.heroes && tavern.heroes.length">
+      <thead>
+      <th>#</th>
+      <th>Name</th>
+      <th style="width: 40px;">Action</th>
+      </thead>
+      <tbody *ngFor="let hero of tavern.heroes; let i = index">
+      <tr>
+        <td>{{i + 1}}</td>
+        <td>
+          <a routerLink="/heroes/{{hero.id}}">{{hero.name}}</a>
+        </td>
+        <td>
+          <button type="button"
+                  class="btn btn-danger btn-sm"
+                  (click)="deleteHeroFromTavern(hero.id)"
+          >Kick off
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h6 *ngIf="!tavern.heroes || !tavern.heroes.length">You have no heroes in this tavern yet</h6>
+  </div>
+
+
+  <button (click)="goBack()">Go back</button>
+</div>

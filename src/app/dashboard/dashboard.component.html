@@ -1,0 +1,42 @@
+<div style="display: inline-block; width: 100%">
+
+  <div class="mt-5">
+    <h3 class="mb-2">Top Heroes</h3>
+    <div class="d-flex flex-row flex-wrap">
+      <a *ngFor="let hero of heroes"
+         class="col-1-4"
+         routerLink="/heroes/{{hero.id}}">
+        <div class="module hero">
+          <div class="hero-name-module">{{hero.name}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h3 class="mb-2">Top Guilds</h3>
+    <div class="d-flex flex-row flex-wrap">
+      <a *ngFor="let guild of guilds"
+         class="col-1-4"
+         routerLink="/guilds/{{guild.id}}">
+        <div class="module hero">
+          <div class="hero-name-module">{{guild.name}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h3 class="mb-2">Top Taverns</h3>
+    <div class="d-flex flex-row flex-wrap">
+      <a *ngFor="let tavern of taverns"
+         class="col-1-4"
+         routerLink="/taverns/{{tavern.id}}">
+        <div class="module hero">
+          <div class="hero-name-module">{{tavern.name}}</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</div>
